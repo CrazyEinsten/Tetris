@@ -52,7 +52,7 @@ UINT ClientThread(LPVOID param)
 			}
 			if (flag)
 			{
-				send(*sock, "ÓÃ»§ÃûÒÑ±»×¢²á", 1024, 0);
+				send(*sock, "ç”¨æˆ·åå·²è¢«æ³¨å†Œ", 1024, 0);
 				continue;
 			}
 			else
@@ -66,12 +66,12 @@ UINT ClientThread(LPVOID param)
 				{
 					fp = fopen("database.txt", "a+");
 					fprintf(fp, "%s\t%s\n", rev, num);
-					send(*sock, "×¢²á³É¹¦", 1024, 0);
+					send(*sock, "æ³¨å†ŒæˆåŠŸ", 1024, 0);
 					fclose(fp);
 				}
 				else
 				{
-					send(*sock, "ÃÜÂë´íÎó", 1024, 0);
+					send(*sock, "å¯†ç é”™è¯¯", 1024, 0);
 				}
 			}
 		}
@@ -91,7 +91,7 @@ UINT ClientThread(LPVOID param)
 			}
 			if (!flag)
 			{
-				send(*sock, "ÓÃ»§Ãû´íÎó", 1024, 0);
+				send(*sock, "ç”¨æˆ·åé”™è¯¯", 1024, 0);
 				fclose(fp);
 				continue;
 			}
@@ -102,14 +102,14 @@ UINT ClientThread(LPVOID param)
 				recv(*sock, rev, 1024, 0);
 				if (strcmp(rev, str) == 0)
 				{
-					send(*sock, "µÇÂ½³É¹¦", 1024, 0);
+					send(*sock, "ç™»é™†æˆåŠŸ", 1024, 0);
 					fclose(fp);
 					closesocket(*sock);
 					break;
 				}
 				else
 				{
-					send(*sock, "ÃÜÂë´íÎó", 1024, 0);
+					send(*sock, "å¯†ç é”™è¯¯", 1024, 0);
 					fclose(fp);
 					continue;
 				}
@@ -133,7 +133,7 @@ int main()
 	serversock = socket(PF_INET, SOCK_STREAM, 0);
 	if (serversock == INVALID_SOCKET)
 	{
-		printf("Ì×½Ó×Ö´´½¨Ê§°Ü");
+		printf("å¥—æ¥å­—åˆ›å»ºå¤±è´¥");
 		system("pause");
 		return 1;
 	}
@@ -144,14 +144,14 @@ int main()
 	int flag = bind(serversock, (struct sockaddr*)&serveraddr, sizeof(struct sockaddr));
 	if (flag < 0)
 	{
-		printf("°ó¶¨Ê§°Ü");
+		printf("ç»‘å®šå¤±è´¥");
 		system("pause");
 		return 1;
 	}
 	flag = listen(serversock, SOMAXCONN);
 	if (flag < 0)
 	{
-		printf("¼àÌıÊ§°Ü");
+		printf("ç›‘å¬å¤±è´¥");
 		system("pause");
 		return 1;
 	}
@@ -162,7 +162,7 @@ int main()
 		clientsock = accept(serversock, (struct sockaddr *)&clientaddr, &i);
 		if (clientsock == INVALID_SOCKET)
 		{
-			printf("½ÓÊÜÊ§°Ü£¡");
+			printf("æ¥å—å¤±è´¥ï¼");
 			system("pause");
 			return 0;
 		}
