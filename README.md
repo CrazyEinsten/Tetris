@@ -1,5 +1,5 @@
 # Tetris
-  This is my first git.
+  This is my first git.<br/>
   In this summer, i finished my first project as a Tetris. 
   Used the C and the win32 API to draw my GUI.
   Although it just a little game, i wanna make something different.
